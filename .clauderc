@@ -1,0 +1,19 @@
+# Claude Code Project Configuration
+
+# Project description
+# A family management application
+
+# Ignore patterns (similar to .gitignore)
+.git/
+node_modules/
+dist/
+build/
+*.log
+.env
+.env.local
+
+# Model preference (optional)
+# model: sonnet
+
+# Custom instructions for this project (optional)
+# Add any project-specific guidelines or context here
