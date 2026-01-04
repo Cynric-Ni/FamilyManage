@@ -39,8 +39,10 @@ AI 服务层 (Python FastAPI)
 ### 技术栈详情
 
 #### 后端 - 主服务 (Spring Boot)
-- **框架**: Spring Boot 3.4+
-- **语言**: Java 17+
+- **框架**: Spring Boot 4.0.1
+- **语言**: Java 25
+- **Spring Framework**: 7.x
+- **构建工具**: Maven 4.0.0-rc-5
 - **核心依赖**:
   - Spring Web (RESTful API)
   - Spring Security (JWT 认证、权限管理)
@@ -52,7 +54,6 @@ AI 服务层 (Python FastAPI)
   - pgvector (向量存储扩展)
   - Redis 7+ (缓存、会话)
 - **文件存储**: MinIO / Aliyun OSS
-- **构建工具**: Maven / Gradle
 
 **职责**:
 - 用户认证与授权
@@ -128,7 +129,7 @@ com.family.management
 - **包名**: 全小写，如 `com.family.management.controller`
 
 #### 编码规范
-- 使用 Java 17+ 特性（Record、Switch 表达式等）
+- 使用 Java 25 特性（Record、Switch 表达式、Pattern Matching 等）
 - Controller 只负责参数校验和调用 Service
 - Service 包含业务逻辑，事务管理在此层
 - Repository 只做数据访问，不写业务逻辑
@@ -401,11 +402,12 @@ const handleUpdate = () => {
 ## 开发指南
 
 ### 环境要求
-- **Java**: JDK 17+
+- **Java**: JDK 25+
 - **Python**: Python 3.11+
 - **Node.js**: Node 20+
 - **数据库**: PostgreSQL 15+, Redis 7+
 - **Docker**: Docker 24+, Docker Compose 2.20+
+- **Maven**: Maven 4.0.0-rc-5+
 
 ### 本地开发
 
