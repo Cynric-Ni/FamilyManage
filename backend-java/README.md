@@ -8,7 +8,7 @@
 backend-java/
 ├── src/
 │   ├── main/
-│   │   ├── java/com/family/management/
+│   │   ├── java/com/cynric/familymanagement/
 │   │   │   ├── controller/      # 控制器层（REST API）
 │   │   │   ├── service/         # 服务层（业务逻辑）
 │   │   │   ├── repository/      # 数据访问层
