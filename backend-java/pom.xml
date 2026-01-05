@@ -27,11 +27,12 @@
     </parent>
 
     <!-- 项目基本信息 -->
-    <groupId>com.family</groupId>
-    <artifactId>management-backend</artifactId>
+    <groupId>com.cynric</groupId>
+    <artifactId>family-management-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Family Management Backend</name>
     <description>家庭管理系统后端服务 - 基于 Spring Boot 4.0.1</description>
+    <packaging>jar</packaging>
 
     <!--
         技术栈版本配置

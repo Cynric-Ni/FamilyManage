@@ -14,4 +14,4 @@ server:
 logging:
   level:
     root: INFO  # 根日志级别
-    com.family.management: DEBUG  # 我们的代码使用 DEBUG 级别，方便学习调试
+    com.cynric.familymanagement: DEBUG  # 我们的代码使用 DEBUG 级别，方便学习调试
