@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 家庭管理系统 - 应用主类
  *
- * @SpringBootApplication 注解说明：
+ * {@code @SpringBootApplication}  注解说明：
  * 这是一个组合注解，包含了：
  * 1. @Configuration - 标记这是一个配置类
  * 2. @EnableAutoConfiguration - 启用自动配置
