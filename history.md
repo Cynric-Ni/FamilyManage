@@ -40,7 +40,7 @@
 
 ### 方案二：保留原技术栈（优化版）
 **技术栈**：
-- 后端: Spring Boot 3 + Spring AI
+- 后端: Spring Boot 4 + Spring AI
 - 前端: Vue 3 + Nuxt 3
 - 数据库: PostgreSQL + pgvector
 - AI: Spring AI 框架
@@ -88,7 +88,7 @@
 ### 后端技术栈
 
 #### Spring Boot 主服务
-- Spring Boot 3.4+
+- Spring Boot 4.0.1
 - Spring AI（集成 OpenAI/Ollama/Azure OpenAI）
 - Spring Security（JWT 认证，多人权限管理）
 - PostgreSQL + pgvector（主数据库 + 向量搜索）
