@@ -110,6 +110,32 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- 
+        postgresql的JDBC驱动
+        版本42.7.8，发布于2024-11-15，支持最新的PostgreSQL特性和Java版本
+        详细信息见：https://jdbc.postgresql.org/documentation/changelog.html#version_ 
+        -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.8</version>
+        </dependency>
+        
+        <!--
+            MyBatis-Plus Spring Boot Starter
+            - MyBatis-Plus ORM 框架集成
+            - 提供 CRUD 操作简化
+            - 支持分页、代码生成等功能
+            版本3.5.16，发布于2024-09-10，包含多项性能优化和新特性
+        -->
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-spring-boot4-starter</artifactId>
+            <version>3.5.16</version>
+        </dependency>
+        
     </dependencies>
 
     <build>

@@ -17,7 +17,7 @@ FamilyManage/
 
 ## 技术栈
 
-- **后端**: Spring Boot 3 + Spring AI
+- **后端**: Spring Boot 4 + Spring AI
 - **AI 服务**: Python FastAPI + LangChain
 - **前端**: Vue 3 + Nuxt 4 + pnpm
 - **数据库**: PostgreSQL + pgvector + Redis
@@ -27,11 +27,11 @@ FamilyManage/
 
 ### 环境要求
 
-- Java 17+
-- Python 3.11+
+- Java 25
+- Python 3.14+
 - Node.js 20+
 - pnpm 9+
-- PostgreSQL 15+
+- PostgreSQL 18+
 - Redis 7+
 - Docker (可选)
 
