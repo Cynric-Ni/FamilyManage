@@ -5,6 +5,18 @@
 spring:
   application:
     name: family-management-backend  # 应用名称
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 19831022Nxl.
+    driver-class-name: org.postgresql.Driver
+
+# MyBatis Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+  type-aliases-package: com.cynric.familymanagement.entity
+  configuration.map-underscore-to-camel-case: true
+  configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 # 服务器配置
 server:
@@ -15,3 +27,4 @@ logging:
   level:
     root: INFO  # 根日志级别
     com.cynric.familymanagement: DEBUG  # 我们的代码使用 DEBUG 级别，方便学习调试
+
