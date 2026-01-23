@@ -4,11 +4,11 @@
 # 应用基本信息
 spring:
   application:
-    name: family-management-backend  # 应用名称
+    name: family-management-backend # 应用名称
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: 19831022Nxl.
+    password: 123456
     driver-class-name: org.postgresql.Driver
 
 # MyBatis Plus 配置
@@ -20,11 +20,11 @@ mybatis-plus:
 
 # 服务器配置
 server:
-  port: 8080  # 服务器端口
+  port: 8080 # 服务器端口
 
 # 日志配置
 logging:
   level:
-    root: INFO  # 根日志级别
-    com.cynric.familymanagement: DEBUG  # 我们的代码使用 DEBUG 级别，方便学习调试
+    root: INFO # 根日志级别
+    com.cynric.familymanagement: DEBUG # 我们的代码使用 DEBUG 级别，方便学习调试
 
