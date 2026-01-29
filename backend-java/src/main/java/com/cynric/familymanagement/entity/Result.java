@@ -15,11 +15,11 @@ public class Result<T> {
         return new Result<>(0,"操作成功", data);
     }
 
-    public static  Result success(){
-        return  new Result(0, "操作成功", null);
+    public static  Result<Void> success(){
+        return  new Result<>(0, "操作成功", null);
     }
 
-    public static Result error(String msg){
-        return new Result(1, msg, null);
+    public static Result<Void> error(String msg){
+        return new Result<>(1, msg, null);
     }
 }
