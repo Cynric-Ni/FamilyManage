@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,12 +34,17 @@ public class User implements Serializable {
     @TableId(value = "id", type = IdType.ASSIGN_UUID)
     private UUID id;
 
+    @NotBlank(message = "用户名不能为空")
     @TableField("username")
     private String username;
 
+
+    @NotBlank(message = "密码不能为空")
     @TableField("password")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    @Email(message = "邮件格式不对")
     @TableField("email")
     private String email;
 
@@ -53,7 +60,7 @@ public class User implements Serializable {
     @TableField("status")
     private  UserStatusEnum status;
 
-    @TableId("phone")
+    @TableField("phone")
     private String phone;
 
     @TableField("gender")
@@ -62,6 +69,7 @@ public class User implements Serializable {
     /**
      * 家庭角色
      */
+    @NotBlank(message = "家庭角色不能为空")
     @TableField("family_role")
     private String familyRole;
 
@@ -75,11 +83,11 @@ public class User implements Serializable {
      */
     @TableField(value = "created_at", fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime creatAt;
+    private LocalDateTime createdAt;
 
     @TableField(value = "updated_at", fill = FieldFill.INSERT_UPDATE)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime updateAt;
+    private LocalDateTime updatedAt;
 
     /**
      * 创建人ID
