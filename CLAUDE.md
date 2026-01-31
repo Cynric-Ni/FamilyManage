@@ -667,7 +667,7 @@ packages:
 
 ### 分支策略
 - `main`: 生产环境分支
-- `develop`: 开发分支
+- `dev`: 开发分支
 - `feature/*`: 功能分支
 - `hotfix/*`: 紧急修复分支
 
@@ -713,3 +713,154 @@ docs(readme): 更新部署文档
 - [Vue 3 文档](https://vuejs.org/)
 - [Nuxt 3 文档](https://nuxt.com/)
 - [PostgreSQL pgvector](https://github.com/pgvector/pgvector)
+
+---
+
+## 当前开发进度
+
+### 已完成的模块
+
+#### 1. 数据库设计 ✅
+- [x] 创建 PostgreSQL 数据库表结构 (`resources/db/schema.sql`)
+- [x] 使用 UUID 作为主键
+- [x] 实现软删除机制
+- [x] 添加审计字段（created_at, updated_at, created_by, updated_by）
+- [x] 创建索引优化查询性能
+- [x] 使用触发器自动更新 updated_at
+
+#### 2. 实体层 (Entity) ✅
+- [x] 创建 User 实体类
+- [x] 配置 MyBatis-Plus 注解
+- [x] 实现密码字段安全保护（@JsonProperty WRITE_ONLY）
+- [x] 添加数据验证注解
+- [x] 实现业务方法（isAdmin, isMember, isGuest, isActive, isDeleted）
+- [x] 修复字段命名问题（createdAt, updatedAt）
+
+#### 3. DTO 层 ✅
+- [x] 创建 RegisterRequest（注册请求 DTO）
+  - 用户名、密码验证
+  - 邮箱、手机号格式验证
+  - 密码强度验证（至少包含字母和数字）
+- [x] 创建 LoginRequest（登录请求 DTO）
+  - 支持"记住我"功能
+- [x] 创建 UserResponse（用户响应 DTO）
+  - 不包含密码等敏感信息
+  - 包含显示名称等虚拟字段
+
+#### 4. Mapper 层 ✅
+- [x] 创建 UserMapper 接口
+- [x] 继承 MyBatis-Plus BaseMapper
+- [x] 添加详细的使用说明和示例
+
+#### 5. Service 层 ✅
+- [x] 创建 UserService 接口
+- [x] 创建 UserServiceImpl 实现类
+- [x] 实现用户注册功能
+  - 密码一致性验证
+  - 用户名唯一性检查
+  - 邮箱唯一性检查
+  - 手机号唯一性检查
+  - BCrypt 密码加密（强度 10）
+  - 事务管理
+  - Entity 到 DTO 转换
+
+### 进行中的模块
+
+#### 6. Controller 层 🚧
+- [x] 创建 HealthController（健康检查）
+- [x] 创建 DbTestController（数据库测试）
+- [ ] 完善 UserController
+  - [ ] 添加注册接口 POST /api/users/register
+  - [ ] 添加登录接口 POST /api/users/login
+  - [ ] 统一响应格式
+  - [ ] 统一异常处理
+
+### 待开发的模块
+
+#### 7. 配置层 ⏳
+- [ ] 配置 MyBatis-Plus 自动填充（createdAt, updatedAt）
+- [ ] 配置 Spring Security（JWT 认证）
+- [ ] 配置跨域 CORS
+- [ ] 配置全局异常处理器
+
+#### 8. 测试 ⏳
+- [ ] 编写单元测试
+- [ ] 编写集成测试
+- [ ] 测试注册功能
+- [ ] 测试登录功能
+
+#### 9. 前端开发 ⏳
+- [ ] 搭建 Vue 3 + Nuxt 3 项目
+- [ ] 实现注册页面
+- [ ] 实现登录页面
+- [ ] 实现用户管理页面
+
+### 技术决策记录
+
+#### 使用 MyBatis-Plus 而非 Spring Data JPA
+- **原因**：学习路径规划，先学习 MyBatis-Plus，后期再学习 JPA
+- **优势**：MyBatis-Plus 提供了强大的 BaseMapper，减少 SQL 编写
+- **状态**：已实施
+
+#### 密码安全策略
+- **传输层**：使用 HTTPS 加密传输（明文密码在加密通道中传输）
+- **存储层**：使用 BCrypt 加密存储（强度 10，自动加盐）
+- **响应层**：密码字段使用 @JsonProperty(WRITE_ONLY)，永不返回给前端
+- **状态**：已实施
+
+#### 数据库字段设计
+- **主键**：使用 UUID 而非自增 ID（安全性考虑）
+- **软删除**：使用 deleted_at 字段，配合 @TableLogic 注解
+- **审计字段**：created_at, updated_at, created_by, updated_by
+- **状态**：已实施
+
+### 下一步计划
+
+1. **在 UserController 中添加注册接口**
+2. **测试注册功能**
+3. **实现登录功能**
+4. **配置 MyBatis-Plus 自动填充**
+5. **配置 JWT 认证**
+
+### 学习笔记
+
+#### MyBatis-Plus BaseMapper 常用方法
+```java
+// 插入
+userMapper.insert(user);
+
+// 查询
+User user = userMapper.selectById(id);
+User user = userMapper.selectOne(wrapper);
+List<User> users = userMapper.selectList(wrapper);
+
+// 更新
+userMapper.updateById(user);
+
+// 删除（软删除）
+userMapper.deleteById(id);
+
+// 计数
+Long count = userMapper.selectCount(wrapper);
+```
+
+#### BCrypt 密码加密
+```java
+BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(10);
+String encrypted = encoder.encode("password");  // 加密
+boolean matches = encoder.matches("password", encrypted);  // 验证
+```
+
+#### QueryWrapper 使用示例
+```java
+QueryWrapper<User> wrapper = new QueryWrapper<>();
+wrapper.eq("username", "admin")           // WHERE username = 'admin'
+       .eq("status", UserStatusEnum.ACTIVE)  // AND status = 'ACTIVE'
+       .orderByDesc("created_at");           // ORDER BY created_at DESC
+```
+
+---
+
+**最后更新时间**: 2026-02-01
+**当前分支**: dev
+**开发者**: Cynric (学习中)
