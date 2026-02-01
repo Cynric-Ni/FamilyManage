@@ -7,6 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="management-backend" />
+      </profile>
+      <profile name="Annotation profile for Family Management Backend" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../../mvnrepo/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+        </processorPath>
         <module name="family-management-backend" />
       </profile>
     </annotationProcessing>

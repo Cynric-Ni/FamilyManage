@@ -151,6 +151,29 @@
     <build>
         <plugins>
             <!--
+                Maven Compiler Plugin
+                - 配置 Java 编译器
+                - 启用注解处理器（Lombok）
+                - Java 25 支持
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>25</source>
+                    <target>25</target>
+                    <encoding>UTF-8</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <!--
                 Spring Boot Maven Plugin
                 - 将应用打包成可执行的 jar 文件
                 - 支持 spring-boot:run 命令直接运行
