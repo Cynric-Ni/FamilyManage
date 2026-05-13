@@ -13,7 +13,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$PROJECT_DIR$/../../mvnrepo/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
+          <entry name="E:/mvnrepo/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
         <module name="family-management-backend" />
       </profile>
