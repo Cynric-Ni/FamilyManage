@@ -52,25 +52,37 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 25%;
-  background-color: red;
+  width: 35%;
+  padding: 50px 10px;
+  background-color: rgba(253, 251, 251, 0.103);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 254, 254, 0.411);
 }
 
 h1 {
   font-size: 2.5rem;
   color: white;
-  margin: 25px;
+  margin: 0 0 50px;
 }
 
 .input-wrap {
   border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  height: 60px;
+  width: 90%;
+  border-radius: 50px;
 }
 
 input {
+  flex: 1;
   background-color: transparent;
   font-size: 1.2rem;
   color: white;
   padding: 5px 25px;
+  min-width: 0;
 }
 
 input::placeholder {
@@ -81,6 +93,18 @@ input::placeholder {
 .input-icon {
   color: white;
   font-size: 1.2rem;
-  padding-left: 25px;
+  padding-right: 25px;
+  flex-shrink: 0;
+}
+
+button {
+  width: 90%;
+  height: 60px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: 0.3s;
 }
 </style>
