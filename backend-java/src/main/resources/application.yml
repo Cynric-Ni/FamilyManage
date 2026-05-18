@@ -6,7 +6,7 @@ spring:
   application:
     name: family-management-backend # 应用名称
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: JDBC:postgresql://localhost:5432/postgres
     username: postgres
     password: 123456
     driver-class-name: org.postgresql.Driver
