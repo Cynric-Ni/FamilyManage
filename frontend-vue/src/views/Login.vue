@@ -1,13 +1,13 @@
 <template>
   <div class="login-page">
     <section id="login-form">
-      <h1>WELCOME</h1>
-      <div class="input-wrap">
+      <h1>家庭物品管理</h1>
+      <div class="input-wrap in-1">
         <input type="text" placeholder="Username" spellcheck="false" required />
         <font-awesome-icon class="input-icon" icon="fa-solid fa-user" />
       </div>
 
-      <div class="input-wrap">
+      <div class="input-wrap in-2">
         <input
           type="password"
           placeholder="Password"
@@ -16,7 +16,12 @@
         />
         <font-awesome-icon class="input-icon" icon="fa-solid fa-lock" />
       </div>
-
+      <div class="rem">
+        <p>
+          <input type="checkbox" />
+          Remember me
+        </p>
+      </div>
       <button>Login</button>
     </section>
   </div>
@@ -39,12 +44,23 @@
   display: flex;
   width: 100%;
   min-height: 100vh;
-  background-image: url(../assets/login.jpg);
+  background-image: url(../assets/image/login.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
   justify-content: center;
   align-items: center;
+}
+
+.login-page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
 }
 
 #login-form {
@@ -52,17 +68,37 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 35%;
+  width: 30%;
   padding: 50px 10px;
   background-color: rgba(253, 251, 251, 0.103);
   border-radius: 10px;
   border: 1px solid rgba(255, 254, 254, 0.411);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+  overflow: hidden;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: white;
-  margin: 0 0 50px;
+  margin: 0 0 25px;
+  letter-spacing: 3px;
+
+  animation: reloadA 1s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.in-1{
+    animation: reloadA 1.2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+.in-2{
+    animation: reloadA 1.4s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
 }
 
 .input-wrap {
@@ -74,6 +110,7 @@ h1 {
   height: 60px;
   width: 90%;
   border-radius: 50px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.753);
 }
 
 input {
@@ -97,6 +134,26 @@ input::placeholder {
   flex-shrink: 0;
 }
 
+.rem {
+  width: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 25px;
+
+  animation: reloadA 1.6s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.8s;
+}
+
+.rem p {
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+} 
+
+
 button {
   width: 90%;
   height: 60px;
@@ -106,5 +163,23 @@ button {
   cursor: pointer;
   margin-bottom: 25px;
   transition: 0.3s;
+
+  animation: reloadA 1.8s ease-out forwards;
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+button:hover {
+  background-color: rgb(180, 180, 180);
+}
+
+@keyframes reloadA{
+  from{
+    transform: translateY(250px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 </style>
